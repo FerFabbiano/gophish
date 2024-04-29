@@ -6,7 +6,7 @@ resource "aws_instance" "gophish" {
     subnet_id = "${aws_subnet.prod-subnet-public-1.id}"
 
     # Security Group
-    vpc_security_group_ids = ["${aws_security_group.https-allowed.id}"]
+    vpc_security_group_ids = ["${aws_security_group.gophish_sg.id}"]
 
     # the Public SSH key
     key_name = "${aws_key_pair.local-key.id}"

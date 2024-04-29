@@ -13,6 +13,7 @@ sudo unzip gophish-v0.12.1-linux-64bit.zip -d /opt/gophish
 echo "Change Config Files..."
 sudo sed -i 's/127.0.0.1/0.0.0.0/g' /opt/gophish/config.json
 sudo sed -i 's/true/false/g' /opt/gophish/config.json
+sudo sed -i 's/80/443/g' config.json
 sudo sed -i 's|"contact_address":.*,|"contact_address": "fernando.fabbiano@y.uno",|; s|"filename":.*,|"filename": "app.log",|; s|"level":.*|"level": "info"|' /opt/gophish/config.json
 
 

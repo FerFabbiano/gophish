@@ -23,7 +23,7 @@ resource "aws_route_table_association" "prod-crta-public-subnet-1"{
     route_table_id = "${aws_route_table.prod-public-crt.id}"
 }
 
-resource "aws_security_group" "https-allowed" {
+resource "aws_security_group" "gophish_sg" {
     vpc_id = "${aws_vpc.prod-vpc.id}"
 
     ingress {
@@ -44,6 +44,13 @@ resource "aws_security_group" "https-allowed" {
     ingress {
         from_port = 3333
         to_port = 3333
+        protocol = "tcp"
+        cidr_blocks = ["0.0.0.0/0"]
+    }
+
+    ingress {
+        from_port = 443
+        to_port = 443
         protocol = "tcp"
         cidr_blocks = ["0.0.0.0/0"]
     }
